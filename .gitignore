@@ -2,6 +2,3 @@
 vendor
 *.java
 *.lock
-*.min.css
-*.min.js
-*.min.map

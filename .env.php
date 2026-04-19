@@ -1,5 +1,5 @@
 <?php
  return [
-   'server' => 'http://localhost',
-   'port' => '8080',
+   'server' => 'https://bthsanjulian.website',
+   'port' => '8889',
  ];
