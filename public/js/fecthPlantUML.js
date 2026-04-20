@@ -1,5 +1,5 @@
 const ENDPOINT = '/server.php';
-const DEBOUNCE_MS = 1500;
+const DEBOUNCE_MS = 1000;
 const STORAGE_KEY = 'plantuml_juanvladimir13';
 
 let currentBlobUrl = null;

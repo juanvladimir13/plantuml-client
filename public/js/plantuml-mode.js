@@ -18,26 +18,36 @@ CodeMirror.defineSimpleMode('plantuml', {
 
     // Directivas de diagrama (inicio/fin)
     {
-      regex: /\b(@startuml|@enduml|@startmindmap|@endmindmap|@startsalt|@endsalt|@startjson|@endjson|@startyaml|@endyaml|@startgantt|@endgantt)\b/,
+      regex: /(@startuml|@enduml|@startmindmap|@endmindmap|@startsalt|@endsalt|@startjson|@endjson|@startyaml|@endyaml|@startgantt|@endgantt)(?=\s|$)/,
       token: 'meta',
     },
 
     // Tipos de diagrama / keywords principales
     {
-      regex: /\b(participant|actor|boundary|control|entity|database|collections|queue|usecase|component|package|node|folder|frame|cloud|rectangle|storage|artifact|interface|enum|abstract|class|object|state|note|legend|title|header|footer|caption|newpage|namespace|partition|together|skinparam)\b/,
+      regex: /(participant|actor|boundary|control|entity|database|collections|queue|usecase|component|package|node|folder|frame|cloud|rectangle|storage|artifact|interface|enum|abstract|class|object|state|note|legend|title|header|footer|caption|newpage|namespace|partition|together|skinparam)(?=\s|$)/,
       token: 'keyword',
     },
 
     // Keywords de flujo y relaciones
     {
-      regex: /\b(if|then|else|elseif|endif|while|endwhile|repeat|backward|end|fork|again|kill|detach|stop|start|floating|as|is|of|on|over|top|bottom|left|right|end\s+note|end\s+legend|activate|deactivate|destroy|create|return|alt|loop|group|critical|break|par|ref|opt)\b/,
+      regex: /(if|then|else|elseif|endif|while|endwhile|repeat|backward|end|fork|again|kill|detach|stop|start|floating|as|is|of|on|over|top|bottom|left|right|end\s+note|end\s+legend|activate|deactivate|destroy|create|return|alt|loop|group|critical|break|par|ref|opt)(?=\s|$)/,
       token: 'keyword',
+      sol: true
+    },
+    {
+      regex: /(\s+)(if|then|else|elseif|endif|while|endwhile|repeat|backward|end|fork|again|kill|detach|stop|start|floating|as|is|of|on|over|top|bottom|left|right|end\s+note|end\s+legend|activate|deactivate|destroy|create|return|alt|loop|group|critical|break|par|ref|opt)(?=\s|$)/,
+      token: [null, 'keyword'],
     },
 
     // Tipos de datos / visibilidad
     {
-      regex: /\b(public|private|protected|static|final|void|int|string|boolean|float|double|long)\b/,
+      regex: /(public|private|protected|static|final|void|int|string|boolean|float|double|long|number|varchar|date|datetime|timestamp)(?=\s|$)/,
       token: 'type',
+      sol: true
+    },
+    {
+      regex: /(\s+)(public|private|protected|static|final|void|int|string|boolean|float|double|long|number|varchar|date|datetime|timestamp)(?=\s|$)/,
+      token: [null, 'type'],
     },
 
     // Colores

@@ -6,7 +6,7 @@ function encodePlantUML(string $plantUMLContent): string
 {
   $config = require '../.env.php';
   $encode = encodep($plantUMLContent);
-  $url = $config['server'] . ':' . $config['port'];
+  $url = "{$config['server']}:{$config['port']}";
   return "{$url}/plantuml/svg/{$encode}";
 }
 
