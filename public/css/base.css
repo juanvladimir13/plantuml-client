@@ -1,30 +1,35 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-  box-sizing: border-box;
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-columns: 500px 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 .editor {
-  box-sizing: border-box;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 
 /* CodeMirror llena el contenedor del editor */
 .editor .CodeMirror {
   height: 100%;
-  font-size: x-large;
+  font-size: large;
   font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
   background-color: #1e1e2e;
-  padding: 20px;
+  padding: 10px;
 }
 
 /* Colores custom para tokens PlantUML */
@@ -64,26 +69,21 @@ body {
 }
 
 .diagram {
-  box-sizing: border-box;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: #dddddd;
 }
 
 img {
-  box-sizing: border-box;
   object-fit: contain;
   height: 100%;
-  width: inherit;
+  width: 100%;
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (min-width: 767px) {
   .container {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100vh;
-    display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
   }
 
   .editor .CodeMirror {
@@ -92,31 +92,13 @@ img {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 1026px) {
   .container {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 500px 1fr;
   }
 
   .editor .CodeMirror {
-    font-size: large;
-    padding: 10px;
-  }
-
-  .editor {
-    box-sizing: border-box;
-    height: 50vh;
-    overflow: hidden;
-  }
-
-  .diagram {
-    box-sizing: border-box;
-    height: 50vh;
-    width: 100%;
-    background-color: #dddddd;
+    font-size: x-large;
+    padding: 20px;
   }
 }
